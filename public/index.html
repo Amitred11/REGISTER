@@ -4,20 +4,90 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="login.css">
 </head>
-<body>
-    <div class="container">
-        <h2>Register</h2>
-        <form id="registerForm">
-            
-            <input type="text" id="name" placeholder="Enter Name" required>
-            <input type="email" id="email" placeholder="Enter Email" required>
-            <input type="password" id="password" placeholder="Enter Password" required>
-            <button type="submit">Register</button>
+<body class="bg-black min-h-screen flex items-center justify-center px-4">
+    <div class="relative w-full max-w-sm bg-white rounded-3xl shadow-lg overflow-hidden">
+  
+      <!-- Background Curves -->
+      <div class="absolute top-0 left-0 w-full h-full z-0">
+        <div class="absolute -top-20 -left-20 w-60 h-60 bg-pink-500 rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-pulse"></div>
+        <div class="absolute -bottom-10 right-0 w-72 h-72 bg-pink-400 rounded-full mix-blend-multiply filter blur-2xl opacity-40 animate-pulse"></div>
+      </div>
+  
+      <!-- Content -->
+      <div class="relative z-10 p-8">
+        <h2 class="text-2xl font-semibold text-gray-800 mb-1">Register</h2>
+        <p class="text-sm text-gray-500 mb-6">Yo! Join us now!</p>
+  
+        <form id="registerForm" class="space-y-4">
+          <input type="text" id="name" placeholder="Name" required
+            class="w-full px-4 py-3 border border-gray-300 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-pink-400">
+  
+          <input type="email" id="email" placeholder="Email" required
+            class="w-full px-4 py-3 border border-gray-300 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-pink-400">
+  
+          <input type="password" id="password" placeholder="Password" required
+            class="w-full px-4 py-3 border border-gray-300 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-pink-400">
+  
+          <div class="flex items-center text-sm text-gray-600">
+            <input type="checkbox" id="agree" class="mr-2">
+            <label for="agree" class="cursor-pointer text-pink-500 underline" onclick="openTerms()">I agree with the privacy policy</label>
+          </div>
+  
+          <button type="submit"
+            class="w-full bg-pink-500 hover:bg-pink-600 text-white font-semibold py-3 rounded-full transition duration-300">
+            Register
+          </button>
         </form>
-        <p id="message"></p>
+  
+        <p id="message" class="mt-4 text-center text-sm text-red-500"></p>
+  
+        <p class="mt-6 text-sm text-center text-gray-500">
+          See you at our website, ADMIN!
+        </p>
+      </div>
     </div>
+
+    <!-- Terms and Conditions Modal (Overlay) -->
+<!-- Terms & Conditions Modal -->
+<div id="termsModal" class="fixed inset-0 bg-black bg-opacity-60 hidden flex items-center justify-center z-50">
+    <div class="bg-white p-6 rounded-lg max-w-md w-full text-center shadow-lg relative">
+        <h2 class="text-xl font-semibold mb-4">Terms & Conditions</h2>
+        <p class="text-sm text-gray-600 mb-4">
+            By registering, you agree to our privacy policy and terms of service. Your data will be securely handled.
+        </p>
+        
+        <h3 class="text-sm font-semibold text-gray-800 mb-2">Mga Alituntunin:</h3>
+        <ul class="list-decimal list-inside text-sm text-gray-600 space-y-2 text-left">
+            <li>Walang espiya.</li>
+            <li>Sa tuwing tayo’y magkikita, huwag lilimutin at ugaliin ang ating nakaugaliang bati.</li>
+            <li>Ang sinumang kabilang sa kapisanang ito ay may pahintulot na mag-abot ng tulong sa kapwa sa sandali ng pangangailangan.</li>
+            <li>Sa loob ng kapisanang ito, walang hari ni panginoon; tayo’y magkakapantay.</li>
+            <li>Upang mapabilang ang isa, kinakailangang siya’y tunay at tapat na Nigga.</li>
+            <li>Maging magiliw at magalang sa lahat.</li>
+            <li>At higit sa lahat, hindi pinapayagan ang anomang seryosong alitan sa pagitan ng mga kasapi; hangga't maaari, ito ay dapat idaan sa mahinahong pakikipagsuntukan.</li>
+        </ul>
+        
+        <div class="mt-4 flex justify-center gap-4">
+            <button onclick="closeTerms()" class="bg-gray-300 text-gray-800 px-4 py-2 rounded-lg">Close</button>
+            <button onclick="agreeTerms()" class="bg-pink-500 text-white px-4 py-2 rounded-lg">I Agree</button>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Success Modal -->
+    <div id="successModal" class="fixed inset-0 bg-black bg-opacity-60 hidden flex items-center justify-center z-50">
+      <div class="bg-white p-6 rounded-lg max-w-md w-full text-center shadow-lg relative">
+        <h2 class="text-xl font-semibold text-green-600 mb-4">Registration Successful!</h2>
+        <p class="text-sm text-gray-600">You have successfully registered.</p>
+        <button onclick="closeSuccess()" class="bg-green-500 text-white px-4 py-2 mt-4 rounded-lg">OK</button>
+      </div>
+    </div>
+
     <script src="login.js"></script>
 </body>
 </html>
